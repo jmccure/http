@@ -13,6 +13,7 @@ end
 
 
 When(/^the client adds fruit via POST (.*):$/) do |path, fruits|
+  puts fruits.hashes.to_json
   HTTParty.post('http://localhost:9999' + path, :body => fruits.hashes.to_json,
                                                 :headers => {'Content-Type' => 'application/json'})
 end
