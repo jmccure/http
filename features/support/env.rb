@@ -14,6 +14,8 @@ World(Rack::Test::Methods, AppHelper)
 require 'childprocess'
 require 'timeout'
 require 'httparty'
+require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'fruit')
+
 server = ChildProcess.build("rackup", "--port", "9999")
 
 server.start
