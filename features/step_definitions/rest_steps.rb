@@ -3,6 +3,7 @@ require 'httparty'
 World(FruitHelpers)
 
 When(/^the client requests GET (.*)$/) do |path|
+  puts Fruit.all
   @last_response = fruit_app_get (path)
 end
 
@@ -22,10 +23,3 @@ Then(/^the response JSON from GET (.*):$/) do |path, json|
   JSON.parse(@last_response.body).should eq(JSON.parse(json))
 end
 
-
-
-=begin
-def fruit_app_get (path)
-  HTTParty.get('http://localhost:9999' + path)
-end
-=end
