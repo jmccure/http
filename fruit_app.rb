@@ -16,27 +16,13 @@ class FruitApp < Sinatra::Base
     @current_fruits_hash = FruitApp.data
     @new_fruit = JSON.parse request.body.read
 
-
-    @aaa = @current_fruits_hash << @new_fruit[0]
-
-  #  @aaa = @current_fruits_hash.merge(@new_fruit)
-
-
-
-   # @new_fruit_name =
-   # @new_fruit_colour =
-
-
-
-    File.open('fruitsNEW.json', 'w') do |io|
-      io.write(@aaa.to_json)
-
+    @new_fruit.each do |fruit|
+      @current_fruits_hash << fruit
     end
 
-    #File.open('fruitsOLD.json', 'w') do |io|
-    #  io.write(JSON.parse @current_fruits)
-
-    #end
+    File.open('fruits.json', 'w') do |io|
+      io.write(@current_fruits_hash.to_json)
+    end
 
   end
 end

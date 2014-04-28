@@ -25,6 +25,7 @@ Feature: Fruit list
     When the client adds a fruit via POST /add_fruit:
       |  name       | colour |
       |  cumquat    | black  |
+      |  squash     | white  |
     Then the response JSON from GET /fruits
     """
   [
