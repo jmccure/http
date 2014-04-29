@@ -7,7 +7,12 @@ class FruitApp < Sinatra::Base
 
 
   set :data do
-    Fruit.all
+    #Fruit.field([:name, :colour]).all
+    #Fruit.find({},{_id: 0, name: 1, colour: 1})
+    #Fruit.find(:all,:field => 'colour')
+    JSON.parse Fruit.all.to_json(:only => [:name, :colour])
+    #Fruit.fields()
+
   end
 
   get '/fruits' do
