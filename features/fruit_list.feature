@@ -35,3 +35,15 @@ Scenario: List fruit
     {"name": "squash", "colour": "white"}
   ]
   """
+
+
+  Scenario: List fruit from yaml load
+    Given the system loads fruit from base_data
+    When the client requests GET /fruits
+    Then the response should be JSON:
+    """
+  [
+    {"name": "banana", "colour": "yellow"},
+    {"name": "strawberry", "colour": "red"}
+  ]
+  """
