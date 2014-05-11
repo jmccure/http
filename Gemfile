@@ -7,6 +7,7 @@ gem 'mongo', '~> 1.10.0'
 gem 'mongo_mapper'
 gem 'database_cleaner'
 #test comment
+#test comment 2
 
 group :test do
   gem 'cucumber', '1.3.3'
